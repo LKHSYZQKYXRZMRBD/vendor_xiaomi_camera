@@ -1,0 +1,46 @@
+From 009d04c6e0a5010f8553cf4672d8eb6e8b4474fb Mon Sep 17 00:00:00 2001
+From: Arian <arian.kulmer@web.de>
+Date: Wed, 16 Oct 2024 01:29:58 +0200
+Subject: [PATCH 3/9] Change com.android.camera.action.REVIEW to
+ android.provider.action.REVIEW
+
+This is the standard intent for review actions
+---
+diff --git a/smali/com/android/camera/j5.smali b/smali/com/android/camera/j5.smali
+index 12118ada..45b476d0 100644
+--- a/smali/com/android/camera/j5.smali
++++ b/smali/com/android/camera/j5.smali
+@@ -185,7 +185,7 @@
+ 
+ .field public static d1:Z = false
+ 
+-.field public static final e:Ljava/lang/String; = "com.android.camera.action.REVIEW"
++.field public static final e:Ljava/lang/String; = "android.provider.action.REVIEW"
+ 
+ .field public static final e0:I = 0x8c36
+ 
+diff --git a/smali/com/android/camera/u2.smali b/smali/com/android/camera/u2.smali
+index 22e0391b..3c3af6af 100644
+--- a/smali/com/android/camera/u2.smali
++++ b/smali/com/android/camera/u2.smali
+@@ -953,7 +953,7 @@
+ 
+     move-result p0
+ 
+-    const-string v0, "com.android.camera.action.REVIEW"
++    const-string v0, "android.provider.action.REVIEW"
+ 
+     if-eqz p0, :cond_0
+ 
+@@ -1014,7 +1014,7 @@
+ 
+     const-string p1, "GalleryHelper"
+ 
+-    const-string v1, "gotoGallery: com.android.camera.action.REVIEW"
++    const-string v1, "gotoGallery: android.provider.action.REVIEW"
+ 
+     invoke-static {p1, v1, p0}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+ 
+-- 
+2.39.5
+

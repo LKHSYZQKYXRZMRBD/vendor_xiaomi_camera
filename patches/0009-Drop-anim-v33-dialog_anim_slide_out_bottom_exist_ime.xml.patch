@@ -1,0 +1,26 @@
+From 7b1ddb780f4d7c434f3a3ebf2f8a2d34ce0dc990 Mon Sep 17 00:00:00 2001
+From: Fabian Leutenegger <fabian.leutenegger@bluewin.ch>
+Date: Mon, 10 Feb 2025 16:51:09 +0100
+Subject: [PATCH 9/9] Drop anim-v33 dialog_anim_slide_out_bottom_exist_ime.xml
+
+This animation is not used anyway and causes build errors [1] with our apktool version
+
+[1]:
+res/anim-v33/dialog_anim_slide_out_bottom_exist_ime.xml:4: error: '0.0dip' is incompatible with attribute fromYDelta (attr) float|fraction.
+res/anim-v33/dialog_anim_slide_out_bottom_exist_ime.xml:4: error: '900.0dip' is incompatible with attribute toYDelta (attr) float|fraction.
+---
+diff --git a/res/anim-v33/dialog_anim_slide_out_bottom_exist_ime.xml b/res/anim-v33/dialog_anim_slide_out_bottom_exist_ime.xml
+deleted file mode 100644
+index 7b053fe6..00000000
+--- a/res/anim-v33/dialog_anim_slide_out_bottom_exist_ime.xml
++++ /dev/null
+@@ -1,5 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<set android:interpolator="@anim/decelerate_cubic" android:duration="@integer/dialog_exit_duration_exist_ime"
+-  xmlns:android="http://schemas.android.com/apk/res/android">
+-    <translate android:fromYDelta="0.0dip" android:toYDelta="900.0dip" />
+-</set>
+\ No newline at end of file
+-- 
+2.39.5
+

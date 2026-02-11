@@ -1,0 +1,59 @@
+From fefd1c9c6a9fb661a6c37595aa496cfe7bdc24f1 Mon Sep 17 00:00:00 2001
+From: Arian <arian.kulmer@web.de>
+Date: Fri, 8 Mar 2024 02:11:53 +0100
+Subject: [PATCH 1/9] Support third party galleries
+
+---
+diff --git a/smali/com/android/camera/u2.smali b/smali/com/android/camera/u2.smali
+index c3750493..6503e0ee 100644
+--- a/smali/com/android/camera/u2.smali
++++ b/smali/com/android/camera/u2.smali
+@@ -909,9 +909,9 @@
+ 
+     invoke-direct {p0, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+ 
+-    const-string v0, "com.miui.gallery"
++    const-string v0, "android.intent.category.APP_GALLERY"
+ 
+-    invoke-virtual {p0, v0}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
++    invoke-virtual {p0, v0}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
+ 
+     invoke-virtual {p1, p0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+ 
+@@ -1018,10 +1018,6 @@
+     invoke-direct {p0, v0, p2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+ 
+     :goto_0
+-    const-string p1, "com.miui.gallery"
+-
+-    invoke-virtual {p0, p1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+-
+     const-string p1, "from_MiuiCamera"
+ 
+     const/4 p2, 0x1
+diff --git a/smali_classes4/com/xiaomi/camera/parallelservice/provider/ParallelProcessProvider.smali b/smali_classes4/com/xiaomi/camera/parallelservice/provider/ParallelProcessProvider.smali
+index e9d27b7e..fb7a373e 100644
+--- a/smali_classes4/com/xiaomi/camera/parallelservice/provider/ParallelProcessProvider.smali
++++ b/smali_classes4/com/xiaomi/camera/parallelservice/provider/ParallelProcessProvider.smali
+@@ -290,18 +290,6 @@
+ 
+     invoke-static {v0, v3, v2}, Lcom/android/camera/log/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+ 
+-    invoke-static {}, Lpc/b;->i2()Lpc/b;
+-
+-    move-result-object v0
+-
+-    invoke-virtual {v0}, Lpc/b;->u2()Z
+-
+-    move-result v0
+-
+-    if-nez v0, :cond_0
+-
+-    const/4 v1, 0x4
+-
+     :cond_0
+     :goto_0
+     return v1
+-- 
+2.39.5
+
