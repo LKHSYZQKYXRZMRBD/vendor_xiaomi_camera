@@ -1,5 +1,12 @@
 # Unpinned blobs from ishtar_global-user 13 TKQ1.221114.001 OS2.0.101.0.VMAMIXM release-keys
+# MiuiCamera from fuxi stock, version 6.4.000430.0
 product/priv-app/MiuiCamera/MiuiCamera.apk:system/priv-app/MiuiCamera/MiuiCamera.apk;OVERRIDES=Aperture,Camera,Camera2,GoogleCameraGo
+# MiuiCamera 6.4 system-side dependencies
+system_ext/lib64/libopencl-camera.so:system/lib64/libOpenCL.so;FIX_SONAME;MODULE_SUFFIX=_system
+system_ext/lib64/libopencl-camera.so:system/lib64/libopencl-camera.so
+vendor/lib64/libcdsprpc.so:system/lib64/libcdsprpc.so;MODULE_SUFFIX=_system
+vendor/lib64/libvmmem.so:system/lib64/libvmmem.so;MODULE_SUFFIX=_system
+vendor/lib64/vendor.qti.hardware.dsp@1.0.so:system/lib64/vendor.qti.hardware.dsp@1.0.so;MODULE_SUFFIX=_system
 system/lib64/libgui.so:system/lib64/libgui-xiaomi.so;FIX_SONAME
 system_ext/lib64/libcamera_algoup_jni.xiaomi.so:system/lib64/libcamera_algoup_jni.xiaomi.so
 system_ext/lib64/libcamera_mianode_jni.xiaomi.so:system/lib64/libcamera_mianode_jni.xiaomi.so

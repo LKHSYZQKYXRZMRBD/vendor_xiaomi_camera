@@ -11,5 +11,7 @@
       <permission name="android.permission.SYSTEM_CAMERA" />
       <permission name="android.permission.TURN_SCREEN_ON" />
       <permission name="android.permission.MANAGE_USB"/> 
+      <permission name="android.permission.DUMP" />
+      <permission name="android.permission.SUBSCRIBE_TO_KEYGUARD_LOCKED_STATE" />
    </privapp-permissions>
 </permissions>

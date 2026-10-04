@@ -1,7 +1,10 @@
 allow platform_app app_data_file:file execute;
 allow platform_app vendor_hal_camerapostproc_xiaomi_hwservice:hwservice_manager find;
+hal_client_domain(platform_app, vendor_hal_dspmanager)
 
 binder_call(platform_app, hal_camera_default)
+# Allow capture callbacks from the camera HAL to the camera app.
+binder_call(hal_camera_default, platform_app)
 type vendor_panel_info_prop;
 get_prop(platform_app, vendor_camera_prop)
 get_prop(platform_app, vendor_fp_prop)

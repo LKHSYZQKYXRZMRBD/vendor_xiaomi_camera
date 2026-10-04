@@ -1,0 +1,22 @@
+Subject: [PATCH] MiuiCamera: suppress stock-only permission warning
+
+The camera APK includes a "permission_error" toast that tells users to
+contact R&D when a permission check fails. This message belongs to the
+vendor permission flow and is not useful on the AOSP port; Android's own
+runtime permission UI remains unchanged.
+---
+diff --git a/smali/com/android/camera/ActivityBase$c.smali b/smali/com/android/camera/ActivityBase$c.smali
+--- a/smali/com/android/camera/ActivityBase$c.smali
++++ b/smali/com/android/camera/ActivityBase$c.smali
+@@ -78,11 +78,7 @@
+     :pswitch_0
+     goto/16 :goto_1
+ 
+     :pswitch_1
+-    const p1, 0x7f140af8
+-
+-    invoke-static {p0, p1, v6}, LA/g4;->c(Landroid/content/Context;IZ)V
+-
+     goto/16 :goto_1
+ 
+     :pswitch_2
