@@ -1,0 +1,44 @@
+Subject: [PATCH] MiuiCamera: add themed monochrome launcher icon
+
+Add the reviewed concentric-lens vector as the adaptive icon's monochrome
+layer. The launcher applies the active themed-icon colors at runtime.
+---
+diff --git a/res/drawable/ic_launcher_camera_monochrome.xml b/res/drawable/ic_launcher_camera_monochrome.xml
+new file mode 100644
+index 0000000..793131e
+--- /dev/null
++++ b/res/drawable/ic_launcher_camera_monochrome.xml
+@@ -0,0 +1,22 @@
++<?xml version="1.0" encoding="utf-8"?>
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="108dp"
++    android:height="108dp"
++    android:viewportWidth="108"
++    android:viewportHeight="108">
++    <group android:scaleX="0.66667" android:scaleY="0.66667" android:pivotX="54" android:pivotY="54">
++    <path android:fillColor="#00000000"
++        android:pathData="M81.77,54 C81.77,69.34 69.34,81.77 54,81.77 C38.66,81.77 26.23,69.34 26.23,54 C26.23,38.66 38.66,26.23 54,26.23 C69.34,26.23 81.77,38.66 81.77,54 Z"
++        android:strokeColor="#ffffffff"
++        android:strokeWidth="5.4" />
++    <path android:fillColor="#00000000"
++        android:pathData="M70.2,54 C70.2,62.95 62.95,70.2 54,70.2 C45.05,70.2 37.8,62.95 37.8,54 C37.8,45.05 45.05,37.8 54,37.8 C62.95,37.8 70.2,45.05 70.2,54 Z"
++        android:strokeColor="#ffffffff"
++        android:strokeWidth="6.94" />
++    <path android:fillColor="#00000000"
++        android:pathData="M54,47.06 A6.94,6.94 0 0,1 60.703,52.203"
++        android:strokeColor="#ffffffff"
++        android:strokeLineCap="round"
++        android:strokeWidth="2.31" />
++    </group>
++</vector>
+diff --git a/res/mipmap-anydpi/ic_launcher_camera.xml b/res/mipmap-anydpi/ic_launcher_camera.xml
+index dd6e1e6..92f0a17 100644
+--- a/res/mipmap-anydpi/ic_launcher_camera.xml
++++ b/res/mipmap-anydpi/ic_launcher_camera.xml
+@@ -3,4 +3,5 @@
+   xmlns:android="http://schemas.android.com/apk/res/android">
+     <foreground android:drawable="@mipmap/launcher_ic_fg" />
+     <background android:drawable="@color/launcher_bg" />
++    <monochrome android:drawable="@drawable/ic_launcher_camera_monochrome" />
+ </adaptive-icon>
+\ No newline at end of file
